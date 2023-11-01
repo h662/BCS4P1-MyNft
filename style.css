@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "DS-DIGI";
+  src: url("./assets/fonts/DS-DIGI.TTF");
+}
+
+@font-face {
+  font-family: "Yeongdeok Sea";
+  src: url("./assets/fonts/Yeongdeok Sea.ttf");
+}
+
+.font-digi {
+  font-family: "DS-DIGI";
+}
+
+.font-yd-sea {
+  font-family: "Yeongdeok Sea";
+}
+
 body {
   margin: 0;
 }
@@ -10,4 +28,19 @@ video {
   height: 100vh;
   object-fit: cover;
   z-index: -1;
+}
+
+main {
+  max-width: 1280px;
+  margin: auto;
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  font-size: 32px;
 }
