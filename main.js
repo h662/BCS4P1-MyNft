@@ -11,3 +11,55 @@ function getTime() {
 
 getTime();
 setInterval(getTime, 1000);
+
+const QUOTE_LIST = "quoteList";
+
+function getQuotes() {
+  const quotes = document.querySelector(".quotes");
+  let savedQuotes = localStorage.getItem(QUOTE_LIST);
+
+  if (!savedQuotes) {
+    localStorage.setItem(
+      QUOTE_LIST,
+      JSON.stringify(["철저하게 살지 않으면, 처절하게 살아가야 한다."])
+    );
+
+    savedQuotes = localStorage.getItem(QUOTE_LIST);
+  }
+
+  let parsedQuotes = JSON.parse(savedQuotes);
+
+  quotes.innerText =
+    parsedQuotes[Math.floor(Math.random() * parsedQuotes.length)];
+}
+
+getQuotes();
+
+function onClickQuotes() {
+  const quotes = document.querySelector(".quotes");
+  const newQuote = document.querySelector(".new-quote");
+
+  quotes.style.display = "none";
+  newQuote.style.display = "block";
+}
+
+function onClickNewQuote() {
+  const quotes = document.querySelector(".quotes");
+  const newQuote = document.querySelector(".new-quote");
+  const newQuoteInput = document.querySelector(".new-quote-input");
+
+  if (!newQuoteInput.value) return;
+
+  let savedQuotes = localStorage.getItem(QUOTE_LIST);
+  let parsedQuotes = JSON.parse(savedQuotes);
+
+  parsedQuotes.push(newQuoteInput.value);
+
+  localStorage.setItem(QUOTE_LIST, JSON.stringify(parsedQuotes));
+
+  quotes.innerText = newQuoteInput.value;
+  newQuoteInput.value = "";
+
+  quotes.style.display = "block";
+  newQuote.style.display = "none";
+}

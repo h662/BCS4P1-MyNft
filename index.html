@@ -10,7 +10,15 @@
     <main>
       <header>
         <div class="font-digi clock">00:00</div>
-        <div class="font-yd-sea">Work. Life. Balance.</div>
+        <div>
+          <button class="font-yd-sea quotes" onclick="onClickQuotes()">
+            Work. Life. Balance.
+          </button>
+          <div class="new-quote">
+            <input class="new-quote-input" type="text" />
+            <button onclick="onClickNewQuote()">등 록</button>
+          </div>
+        </div>
       </header>
     </main>
     <video src="./assets/images/background.mp4" autoplay muted loop></video>
