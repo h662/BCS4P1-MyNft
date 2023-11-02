@@ -1,1 +1,5 @@
 background.*
+node_modules
+.deps
+artifacts
+res
